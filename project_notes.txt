@@ -1,0 +1,17 @@
+Notes for Hangman Project
+
+1. Want two different game functions. One against a CPU and one against an
+entered word.
+    The one against a CPU will need a random word generator.
+    Several ways to do this. Potentially search for a library containing many
+    words, or make an array that has several predetermined phrases and
+    use random number generator to pick one.
+
+2. Start page will have the main function. The main function will have three
+branches. One for game against CPU, one for game against opponent, one test
+suite (To be removed).
+
+3. The game itself will print the gallows with the appropriate amount of body
+parts, the guess grid with correct guesses marked, and the guessed letters
+that were misses then prompt the user to put in another letter guess.
+    Also potentially a written statement with guesses remaining.
