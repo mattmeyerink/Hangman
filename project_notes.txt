@@ -15,3 +15,20 @@ suite (To be removed).
 parts, the guess grid with correct guesses marked, and the guessed letters
 that were misses then prompt the user to put in another letter guess.
     Also potentially a written statement with guesses remaining.
+
+start.py
+    Contains branch between game against CPU, user, test, and quit
+    Incorporates user_game class, cpu_game class, and test.py
+
+user_game.py
+    Class that defines a game against a user. Implement second. Initially just
+    put a ToDo.
+
+cpu_game.py
+    Class that defines a game against a cpu. Implement first.
+    Generate phrase.
+    print out the gallows and the phrase
+    Ask the user for input. 
+
+test.py
+    Defines a test suite.
