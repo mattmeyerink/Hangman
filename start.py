@@ -1,3 +1,10 @@
+
+#Program written and maintained by Matthew Meyerink
+
+#File responsible for starting the game and handling user menu choice
+
+import test
+
 #Function to print the game's header
 def print_header():
     print("")
@@ -19,31 +26,39 @@ def print_closer():
     print("---------------------------------------")
     print("Thank you for playing the hangman game!")
 
-print_header()
-print_menu()
-menu_choice = input()
+menu_choice = 1
 
 #Loop through game options until the user quits
 while (menu_choice != 3) and (menu_choice != 4):
 
+    #Get initial menu choice
+    print_header()
+    print_menu()
+    menu_choice = input()
+
+    #Branch to run game against the CPU
     if menu_choice == 1:
         print("")
         print("The CPU game will be here soon this takes time fucker\n")
         print_menu()
         menu_choice = input()
 
+    #Branch to run game against another user
     elif menu_choice == 2:
         print("")
         print("That didnt work maybe typing in boobz will help\n")
         print_menu()
         menu_choice = input()
 
+    #Branch to quit the game and print the closer
     elif menu_choice == 3:
         print_closer()
 
+    #Temporary branch to run the test suite
     elif menu_choice == 4:
-        print("Test Suite coming soon to a develouper near you\n")
+        test.test_suite()
 
+    #Branch to catch invalid input
     else:
         print("Invalid input, please try again\n")
         print_menu()
