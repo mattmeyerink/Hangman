@@ -12,19 +12,13 @@ class CPU_game:
         self.guessed_word = ""
         self.current_guess
 
+    #Ramdomly selects a phrase from a list of phrases
     def generate_phrases():
         phrases = [
         "To the well organized mind death is but the next great adventure",
         "Time will not slow down when somethin unpleasent lies ahead",
         "San Francisco is the best city in California"
         ]
-
-    def init_guess_word():
-
-
-    #Checks if the guess letter is present in the gerated phrase
-    def letter_is_present():
-        return
 
     #Prints the gallows based on the number of incorrect guesses made
     def print_gallows(self, num_wrong_guesses):
