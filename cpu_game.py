@@ -32,7 +32,7 @@ class CPU_game:
         input_guess = input("Please enter your guess: ")
         self.current_guess = (input_guess.upper())[0]
 
-    #Checks if current guess is in the word
+    #Checks if current guess is in the word and updates guess word if it is
     def check_guess(self):
         #Bool and branch to check if the player has already guessed this
         already_guessed = (self.current_guess in self.guessed_word
@@ -56,6 +56,18 @@ class CPU_game:
         if num_letters_added == 0:
             self.num_wrong_guesses += 1
             self.wrong_guesses.append(self.current_guess)
+
+    #Determines if the man was hanged ie HANGMAN you lose
+    def hanged():
+        return self.num_wrong_guesses == 8
+
+    #Determines if the user won the game
+    def game_won():
+        blank_left = False
+        for i in range(0, len(self.guessed_word)):
+            if (self.guessed_word[i] == dashed):
+                blank_left = True
+        return blank_left
 
     #Prints the gallows based on the number of incorrect guesses made
     def print_gallows(self, num_wrong_guesses):

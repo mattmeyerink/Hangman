@@ -1,3 +1,8 @@
+
+#Program written and maintained by Matthew Meyerink
+
+#File containing list of phrases for hangman
+
 #List of phrases for CPU to generate for hangman
 global phrases
 phrases = [

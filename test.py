@@ -1,7 +1,9 @@
-from cpu_game import CPU_game
+
 #Program written and maintained by Matthew Meyerink
 
 #File responsible for testing the functions of the game.
+
+from cpu_game import CPU_game
 
 #Test function for CPU_game
 def test_cpu_game():

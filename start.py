@@ -4,6 +4,7 @@
 #File responsible for starting the game and handling user menu choice
 
 import test
+import game
 
 #Function to print the game's header
 def print_header():
@@ -38,8 +39,7 @@ while (menu_choice != 3) and (menu_choice != 4):
 
     #Branch to run game against the CPU
     if menu_choice == 1:
-        print("")
-        print("The CPU game will be here soon this takes time fucker\n")
+        game.game(menu_choice)
         print_menu()
         menu_choice = int(input())
 
