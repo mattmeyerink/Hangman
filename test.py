@@ -47,7 +47,11 @@ def test_cpu_game():
     #Test CPU_game.get_user_guess()
     game.get_user_guess()
     print(game.current_guess)
-    
+
+    #Test CPU_game.check_guess()
+    game.check_guess()
+    print(game.guessed_word)
+
 #Test suite main function
 def test_suite():
     test_cpu_game()
