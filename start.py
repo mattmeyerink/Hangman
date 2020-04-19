@@ -34,21 +34,21 @@ while (menu_choice != 3) and (menu_choice != 4):
     #Get initial menu choice
     print_header()
     print_menu()
-    menu_choice = input()
+    menu_choice = int(input())
 
     #Branch to run game against the CPU
     if menu_choice == 1:
         print("")
         print("The CPU game will be here soon this takes time fucker\n")
         print_menu()
-        menu_choice = input()
+        menu_choice = int(input())
 
     #Branch to run game against another user
     elif menu_choice == 2:
         print("")
         print("That didnt work maybe typing in boobz will help\n")
         print_menu()
-        menu_choice = input()
+        menu_choice = int(input())
 
     #Branch to quit the game and print the closer
     elif menu_choice == 3:
@@ -62,4 +62,4 @@ while (menu_choice != 3) and (menu_choice != 4):
     else:
         print("Invalid input, please try again\n")
         print_menu()
-        menu_choice = input()
+        menu_choice = int(input())

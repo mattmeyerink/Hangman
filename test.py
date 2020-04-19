@@ -6,7 +6,10 @@ from cpu_game import CPU_game
 #Test function for CPU_game
 def test_cpu_game():
 
+    #Define a game to test
     game = CPU_game()
+
+    #Test CPU_game.print_gallows()
     game.print_gallows(game.num_wrong_guesses)
 
     game.num_wrong_guesses = 1
@@ -33,6 +36,18 @@ def test_cpu_game():
     game.num_wrong_guesses = 8
     game.print_gallows(game.num_wrong_guesses)
 
+    #Test CPU_game.generate_cpu_phrase()
+    game.generate_cpu_phrase()
+    print(game.cpu_phrase)
+
+    #Test CPU_game.generate_blank_guessed_word()
+    game.init_guessed_word()
+    print(game.guessed_word)
+
+    #Test CPU_game.get_user_guess()
+    game.get_user_guess()
+    print(game.current_guess)
+    
 #Test suite main function
 def test_suite():
     test_cpu_game()
