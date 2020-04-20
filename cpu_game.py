@@ -9,20 +9,20 @@ class CPU_game:
 
     def __init__(self):
         self.num_wrong_guesses = 0
-        self.cpu_phrase = ""
+        self.phrase = ""
         self.guessed_word = ""
         self.current_guess = ""
         self.wrong_guesses = []
 
-    #Ramdomly selects a phrase from a list of phrases and assign to cpu_phrase
+    #Ramdomly selects a phrase from a list of phrases and assign to phrase
     def generate_cpu_phrase(self):
         random_number = random.randint(0, len(phrases) - 1)
-        self.cpu_phrase = phrases[random_number]
+        self.phrase = phrases[random_number].upper()
 
     #Underscores for characters and spaces for spaces in the guessed word
     def init_guessed_word(self):
-        for i in range(0, len(self.cpu_phrase)):
-            if self.cpu_phrase[i] != " ":
+        for i in range(0, len(self.phrase)):
+            if self.phrase[i] != " ":
                 self.guessed_word += "_"
             else:
                 self.guessed_word += " "
@@ -45,8 +45,8 @@ class CPU_game:
         #Go through each part of string and replace guess letter with current
         #letter if they are the same
         num_letters_added = 0
-        for i in range(0, len(self.cpu_phrase)):
-            if self.cpu_phrase[i] == self.current_guess[0]:
+        for i in range(0, len(self.phrase)):
+            if self.phrase[i] == self.current_guess[0]:
                 self.guessed_word = (self.guessed_word[:i] + self.current_guess
                             + self.guessed_word[i + 1:])
                 num_letters_added += 1
@@ -68,6 +68,16 @@ class CPU_game:
             if (self.guessed_word[i] == "_"):
                 blank_left = False
         return blank_left
+
+    #Function to print the list of wrong guesses
+    def print_wrong_guesses(self):
+        for i in range(0, len(self.wrong_guesses)):
+            if(i == 0):
+                print(self.wrong_guesses[i].upper(), end = '')
+            else:
+                print(", " + self.wrong_guesses[i].upper(), end = '')
+
+        print("")
 
     #Prints the gallows based on the number of incorrect guesses made
     def print_gallows(self, num_wrong_guesses):

@@ -6,7 +6,7 @@
 #List of phrases for CPU to generate for hangman
 global phrases
 phrases = [
-"TO THE WELL ORGANIZED MIND DEATH IS BUT THE NEXT GREAT ADVENTURE",
-"TIME WILL NOT SLOW DOWN WHEN SOMETHING UNPLESANT LIES AHEAD",
-"SAN FRANCISCO IS THE BEST CITY IN CALIFORNIA"
+"To the well organized mind death is but the next great adventure",
+"Time will not slow down when something unplesant lies ahead",
+"San francisco is the best city in California"
 ]

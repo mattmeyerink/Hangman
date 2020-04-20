@@ -37,16 +37,9 @@ while (menu_choice != 3) and (menu_choice != 4):
     print_menu()
     menu_choice = int(input())
 
-    #Branch to run game against the CPU
-    if menu_choice == 1:
+    #Branch to run the hangman game
+    if menu_choice == 1 or menu_choice == 2:
         game.game(menu_choice)
-        print_menu()
-        menu_choice = int(input())
-
-    #Branch to run game against another user
-    elif menu_choice == 2:
-        print("")
-        print("That didnt work maybe typing in boobz will help\n")
         print_menu()
         menu_choice = int(input())
 
