@@ -12,7 +12,7 @@ def game(menu_choice):
         game = CPU_game()
 
         #Print CPU game header
-        print("Good Luck! The CPU is out to beat you!\n")
+        print("\nGood Luck! The CPU is out to beat you!\n")
         print("--------------------------------------")
 
         #Generate the phrase for the game
@@ -21,14 +21,16 @@ def game(menu_choice):
 
         while not game.hanged() and not game.game_won():
             game.print_gallows(game.num_wrong_guesses)
+            print(game.wrong_guesses);
             print(game.guessed_word)
 
             game.get_user_guess()
             game.check_guess()
 
         if (game.hanged()):
-            game.print_gallows()
-            print("You lost to a computer. AI is clearly taking over the world")
+            game.print_gallows(game.num_wrong_guesses)
+            print("\nYou lost to a computer. AI is clearly taking over the world\n")
 
         elif (game.game_won()):
-            print("You beat the computer! Maybe AI won't take over the world!")
+            print("\n" + game.guessed_word)
+            print("\nYou beat the computer! Maybe AI won't take over the world!\n")

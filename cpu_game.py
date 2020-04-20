@@ -39,7 +39,7 @@ class CPU_game:
                         or self.current_guess in self.wrong_guesses)
 
         if (already_guessed):
-            print("You already guessed that. Pay better attention dumbass")
+            print("\nYou already guessed that. Pay better attention dumbass\n")
             self.num_wrong_guesses += 1
 
         #Go through each part of string and replace guess letter with current
@@ -58,15 +58,15 @@ class CPU_game:
             self.wrong_guesses.append(self.current_guess)
 
     #Determines if the man was hanged ie HANGMAN you lose
-    def hanged():
+    def hanged(self):
         return self.num_wrong_guesses == 8
 
     #Determines if the user won the game
-    def game_won():
-        blank_left = False
+    def game_won(self):
+        blank_left = True
         for i in range(0, len(self.guessed_word)):
-            if (self.guessed_word[i] == dashed):
-                blank_left = True
+            if (self.guessed_word[i] == "_"):
+                blank_left = False
         return blank_left
 
     #Prints the gallows based on the number of incorrect guesses made
