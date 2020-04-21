@@ -3,7 +3,7 @@
 
 #File containing function to run CPU and user run hangman games
 
-from cpu_game import CPU_game
+from cpu_game import CPU_Game
 from user_game import User_Game
 
 def game(menu_choice):
@@ -12,14 +12,16 @@ def game(menu_choice):
     if menu_choice == 1:
 
         #Generate a CPU class game
-        game = CPU_game()
+        game = CPU_Game()
 
         #Print CPU game header
         print("\nGood Luck! The CPU is out to beat you!")
         print("--------------------------------------")
 
         #Generate the phrase for the game
-        game.generate_cpu_phrase()
+        difficulty = input("\nPlease input a difficulty (Easy, Medium, Hard): ")
+        difficulty = difficulty.lower()
+        game.generate_cpu_phrase(difficulty)
         game.init_guessed_word()
 
         #Loop through the game while the person is not hanged and the word

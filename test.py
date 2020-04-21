@@ -3,13 +3,13 @@
 
 #File responsible for testing the functions of the game.
 
-from cpu_game import CPU_game
+from cpu_game import CPU_Game
 
 #Test function for CPU_game
 def test_cpu_game():
 
     #Define a game to test
-    game = CPU_game()
+    game = CPU_Game()
 
     #Test CPU_game.print_gallows()
     game.print_gallows(game.num_wrong_guesses)

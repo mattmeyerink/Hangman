@@ -3,9 +3,9 @@
 
 #File responsible for defining the game based on user input
 
-from cpu_game import CPU_game
+from cpu_game import CPU_Game
 
-class User_Game(CPU_game):
+class User_Game(CPU_Game):
 
     #Get the user phrase to start the game
     def get_user_phrase(self):

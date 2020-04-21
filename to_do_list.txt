@@ -1,0 +1,9 @@
+To-Do List
+1. Error handling for guess inputs
+2. Error handling for user phrase inputs
+3. Error handling for menu choice inputs
+4. Fix looping for menu in start.py
+5. Remove test suite option from main menu
+5. Add difficulty option for CPU game to generate different phrases from bank
+6. Possibly add game mode where user enters a word to try to beat computer who
+    guesses letters

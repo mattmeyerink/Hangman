@@ -3,9 +3,11 @@
 
 #File responsible for defining the CPU game class
 import random
-from cpu_phrases import phrases
+from cpu_phrases import easy_phrases
+from cpu_phrases import medium_phrases
+from cpu_phrases import hard_phrases
 
-class CPU_game:
+class CPU_Game:
 
     def __init__(self):
         self.num_wrong_guesses = 0
@@ -15,9 +17,19 @@ class CPU_game:
         self.wrong_guesses = []
 
     #Ramdomly selects a phrase from a list of phrases and assign to phrase
-    def generate_cpu_phrase(self):
-        random_number = random.randint(0, len(phrases) - 1)
-        self.phrase = phrases[random_number].upper()
+    def generate_cpu_phrase(self, difficulty):
+        if difficulty == "easy":
+            random_number = random.randint(0, len(easy_phrases) - 1)
+            self.phrase = easy_phrases[random_number].upper()
+
+        elif difficulty == "medium":
+            random_number = random.randint(0, len(medium_phrases) - 1)
+            self.phrase = medium_phrases[random_number].upper()
+
+        elif difficulty == "hard":
+            random_number = random.randint(0, len(hard_phrases) - 1)
+            self.phrase = hard_phrases[random_number].upper()
+
 
     #Underscores for characters and spaces for spaces in the guessed word
     def init_guessed_word(self):
@@ -34,13 +46,9 @@ class CPU_game:
 
     #Checks if current guess is in the word and updates guess word if it is
     def check_guess(self):
-        #Bool and branch to check if the player has already guessed this
+
         already_guessed = (self.current_guess in self.guessed_word
                         or self.current_guess in self.wrong_guesses)
-
-        if (already_guessed):
-            print("\nYou already guessed that. Pay better attention dumbass\n")
-            self.num_wrong_guesses += 1
 
         #Go through each part of string and replace guess letter with current
         #letter if they are the same
@@ -51,9 +59,14 @@ class CPU_game:
                             + self.guessed_word[i + 1:])
                 num_letters_added += 1
 
+        #Bool and branch to check if the player has already guessed this
+        if (already_guessed):
+            print("\nYou already guessed that. Pay better attention dumbass\n")
+            self.num_wrong_guesses += 1
+
         #If there were no matches for the guess letter add to wrong bank and
         #Increment wrong guesses
-        if num_letters_added == 0:
+        elif num_letters_added == 0:
             self.num_wrong_guesses += 1
             self.wrong_guesses.append(self.current_guess)
 
