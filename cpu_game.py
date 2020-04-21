@@ -41,8 +41,15 @@ class CPU_Game:
 
     #Gets the current user guess
     def get_user_guess(self):
-        input_guess = input("Please enter your guess: ")
-        self.current_guess = (input_guess.upper())[0]
+        #Loop to get inputs until index error isn't thrown
+        while True:
+            try:
+                input_guess = input("Please enter your guess: ")
+                self.current_guess = (input_guess.upper())[0]
+                break
+
+            except IndexError:
+                print("\nPlease dont hit the enter key this time\n")
 
     #Checks if current guess is in the word and updates guess word if it is
     def check_guess(self):
