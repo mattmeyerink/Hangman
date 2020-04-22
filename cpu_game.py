@@ -45,11 +45,15 @@ class CPU_Game:
         while True:
             try:
                 input_guess = input("Please enter your guess: ")
+
+                if ((not input_guess.isalpha()) or len(input_guess) > 1):
+                    raise ValueError
+
                 self.current_guess = (input_guess.upper())[0]
                 break
 
-            except IndexError:
-                print("\nPlease dont hit the enter key this time\n")
+            except ValueError:
+                print("\nPlease enter one letter\n")
 
     #Checks if current guess is in the word and updates guess word if it is
     def check_guess(self):
