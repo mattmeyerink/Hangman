@@ -1,10 +1,6 @@
 To-Do List
-1. Error handling for guess inputs
-2. Error handling for user phrase inputs
-3. Error handling for menu choice inputs
-4. Error handling for difficulty choice inputs
-
-5. Fix looping for menu in start.py
-6. Remove test suite option from main menu
-7. Possibly add game mode where user enters a word to try to beat computer who
+1. Error handling for user phrase inputs
+2. Error handling for difficulty choice inputs
+3. Remove test suite option from main menu
+4. Possibly add game mode where user enters a word to try to beat computer who
     guesses letters
