@@ -83,7 +83,7 @@ class CPU_Game:
 
     #Determines if the man was hanged ie HANGMAN you lose
     def hanged(self):
-        return self.num_wrong_guesses == 8
+        return self.num_wrong_guesses == 6
 
     #Determines if the user won the game
     def game_won(self):
