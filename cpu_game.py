@@ -21,14 +21,19 @@ class CPU_Game:
         if difficulty == "easy":
             random_number = random.randint(0, len(easy_phrases) - 1)
             self.phrase = easy_phrases[random_number].upper()
+            return True
 
         elif difficulty == "medium":
             random_number = random.randint(0, len(medium_phrases) - 1)
             self.phrase = medium_phrases[random_number].upper()
+            return True
 
         elif difficulty == "hard":
             random_number = random.randint(0, len(hard_phrases) - 1)
             self.phrase = hard_phrases[random_number].upper()
+            return True
+        else:
+            return False
 
 
     #Underscores for characters and spaces for spaces in the guessed word

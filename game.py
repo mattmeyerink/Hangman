@@ -19,9 +19,18 @@ def game(menu_choice):
         print("--------------------------------------")
 
         #Generate the phrase for the game
-        difficulty = input("\nPlease input a difficulty (Easy, Medium, Hard): ")
-        difficulty = difficulty.lower()
-        game.generate_cpu_phrase(difficulty)
+        correct_difficulty = False
+        while (not correct_difficulty):
+            difficulty = input("\nPlease input a difficulty (Easy, Medium, Hard): ")
+            difficulty = difficulty.lower()
+
+            #Generate CPU phrase and update correct_difficulty
+            correct_difficulty = game.generate_cpu_phrase(difficulty)
+
+            #Output if difficulty input invalid
+            if (not correct_difficulty):
+                print("\nNot a valid difficulty")
+
         game.init_guessed_word()
 
         #Loop through the game while the person is not hanged and the word
@@ -30,6 +39,7 @@ def game(menu_choice):
 
             #Print the framework of the game
             game.print_gallows(game.num_wrong_guesses)
+            print("Incorrect guesses")
             game.print_wrong_guesses()
             print("\n" + game.guessed_word + "\n")
 
@@ -40,6 +50,7 @@ def game(menu_choice):
         #Check to see if the person was hanged and output loss message
         if (game.hanged()):
             game.print_gallows(game.num_wrong_guesses)
+            print("The word was " + game.phrase)
             print("\nYou lost to a computer. AI is clearly taking over the world\n")
 
         #Check to see if the person won the game and output message
