@@ -77,7 +77,7 @@ class CPU_Game:
 
         #Bool and branch to check if the player has already guessed this
         if (already_guessed):
-            print("\nYou already guessed that. Pay better attention dumbass\n")
+            print("You already guessed that. Pay better attention dumbass\n")
             self.num_wrong_guesses += 1
 
         #If there were no matches for the guess letter add to wrong bank and

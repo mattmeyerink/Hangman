@@ -3,6 +3,7 @@
 
 #File containing function to run CPU and user run hangman games
 
+import sys
 from cpu_game import CPU_Game
 from user_game import User_Game
 
@@ -70,6 +71,9 @@ def game(menu_choice):
 
         #Recieve and handle the phrase for the game
         game.get_user_phrase()
+        #Move outupt cursur up one line to conceal their imported word/phrase
+        sys.stdout.write("\033[F")
+        print("Thank you for inputing the word! Let the game begin!")
         game.init_guessed_word()
 
         #Loop through the game while the person is not hanged and the word
