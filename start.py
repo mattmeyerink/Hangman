@@ -4,6 +4,7 @@
 #File responsible for starting the game and handling user menu choice
 
 import game
+from warning_color import Warning
 
 #Function to print the game's header
 def print_header():
@@ -32,8 +33,10 @@ while True:
         menu_choice = int(input())
         break
 
-    except ValueError('Input other than a number'):
-        print("\nCan you please input a number this time\n")
+    except ValueError:
+        print(Warning.YELLOW +
+            "\nCan you please input a valid choice (1, 2, 3) this time\n" +
+            Warning.END)
 
 #Loop through game options until the user quits
 while (menu_choice != 3):
@@ -53,7 +56,10 @@ while (menu_choice != 3):
             menu_choice = int(input())
             break
 
-        except ValueError('Input other than a number'):
-            print("\nCan you please input a number this time\n")
+        except ValueError:
+            print(Warning.YELLOW +
+                "\nCan you please input a valid choice (1, 2, 3) this time\n" +
+                Warning.END)
+
 
 print_closer()

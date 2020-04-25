@@ -1,3 +1,7 @@
 To-Do List
 1. Possibly add game mode where user enters a word to try to beat computer who
     guesses letters
+
+Current Bugs
+After a user enters an identical guess, the game will no longer add to the
+incorrect guess list. Weird though because it only happens sometimes

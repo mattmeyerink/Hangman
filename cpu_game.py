@@ -6,6 +6,7 @@ import random
 from cpu_phrases import easy_phrases
 from cpu_phrases import medium_phrases
 from cpu_phrases import hard_phrases
+from warning_color import Warning
 
 class CPU_Game:
 
@@ -18,20 +19,26 @@ class CPU_Game:
 
     #Ramdomly selects a phrase from a list of phrases and assign to phrase
     def generate_cpu_phrase(self, difficulty):
+
+        #Generate random phrase from easy list
         if difficulty == "easy":
             random_number = random.randint(0, len(easy_phrases) - 1)
             self.phrase = easy_phrases[random_number].upper()
             return True
 
+        #Generate random phrase from medium list
         elif difficulty == "medium":
             random_number = random.randint(0, len(medium_phrases) - 1)
             self.phrase = medium_phrases[random_number].upper()
             return True
 
+        #Generate random phrase from hard list
         elif difficulty == "hard":
             random_number = random.randint(0, len(hard_phrases) - 1)
             self.phrase = hard_phrases[random_number].upper()
             return True
+
+        #Return false to signal invalid difficulty was input
         else:
             return False
 
@@ -46,19 +53,25 @@ class CPU_Game:
 
     #Gets the current user guess
     def get_user_guess(self):
-        #Loop to get inputs until index error isn't thrown
+        #Loop to get a user guess until an error isn't thrown
         while True:
             try:
                 input_guess = input("Please enter your guess: ")
 
+                #Throw error if more than one char or non letter input
                 if ((not input_guess.isalpha()) or len(input_guess) > 1):
                     raise ValueError
 
+                #Assign the current guess if no error thrown
                 self.current_guess = (input_guess.upper())[0]
+
                 break
 
+            #Catch thrown error if present
             except ValueError:
-                print("\nPlease enter one letter\n")
+                print(Warning.YELLOW +
+                    "\nCan you cooperate and actually enter one letter???\n" +
+                    Warning.END)
 
     #Checks if current guess is in the word and updates guess word if it is
     def check_guess(self):
@@ -77,7 +90,9 @@ class CPU_Game:
 
         #Bool and branch to check if the player has already guessed this
         if (already_guessed):
-            print("You already guessed that. Pay better attention dumbass\n")
+            print("")
+            print(Warning.RED + "You already guessed that.",
+                            "Pay better attention dumbass\n" + Warning.END)
             self.num_wrong_guesses += 1
 
         #If there were no matches for the guess letter add to wrong bank and
@@ -215,6 +230,7 @@ class CPU_Game:
             print("-----")
             print("")
 
+        #Changed so that 6 wrongs ends game but keeping feet art just in case
         elif (num_wrong_guesses == 7):
             print("")
             print("   --------")

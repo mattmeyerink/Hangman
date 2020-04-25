@@ -6,6 +6,7 @@
 import sys
 from cpu_game import CPU_Game
 from user_game import User_Game
+from warning_color import Warning
 
 def game(menu_choice):
 
@@ -22,7 +23,8 @@ def game(menu_choice):
         #Generate the phrase for the game
         correct_difficulty = False
         while (not correct_difficulty):
-            difficulty = input("\nPlease input a difficulty (Easy, Medium, Hard): ")
+            difficulty = input("\nPlease input a difficulty" +
+                                                " (Easy, Medium, Hard): ")
             difficulty = difficulty.lower()
 
             #Generate CPU phrase and update correct_difficulty
@@ -30,7 +32,8 @@ def game(menu_choice):
 
             #Output if difficulty input invalid
             if (not correct_difficulty):
-                print("\nNot a valid difficulty")
+                print(Warning.YELLOW + "\nNot a valid difficulty!"
+                                                                + Warning.END)
 
         game.init_guessed_word()
 
@@ -52,12 +55,14 @@ def game(menu_choice):
         if (game.hanged()):
             game.print_gallows(game.num_wrong_guesses)
             print("The word was " + game.phrase)
-            print("\nYou lost to a computer. AI is clearly taking over the world\n")
+            print("\nYou lost to a computer.",
+                                    " AI is clearly taking over the world!\n")
 
         #Check to see if the person won the game and output message
         elif (game.game_won()):
             print("\n" + game.guessed_word)
-            print("\nYou beat the computer! Maybe AI won't take over the world!\n")
+            print("\nYou beat the computer!",
+                            " Maybe AI won't take over the world!\n")
 
     #Branch for user generate game mode
     elif menu_choice == 2:
@@ -92,6 +97,7 @@ def game(menu_choice):
         #Check to see if the person was hanged and output loss message
         if (game.hanged()):
             game.print_gallows(game.num_wrong_guesses)
+            print("\nThe word was "+ game.guessed_word)
             print("\nYour friend got you on that one. Let their party begin!\n")
 
         #Check to see if the person won the game and output message
