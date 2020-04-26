@@ -4,7 +4,7 @@
 #File responsible for defining the CPU game class
 import random
 from cpu_phrases import *
-from warning_color import *
+from warning_color import Warning
 class CPU_Game:
 
     def __init__(self):
@@ -16,7 +16,7 @@ class CPU_Game:
 
     #Determine the difficulty of randomly selected phrase and assign the phrase
     def phrase_rating(self, difficulty):
-        if difficulty == "easy" or difficulty == "meium" or difficulty == "hard":
+        if difficulty == "easy" or difficulty == "medium" or difficulty == "hard":
 
             #Initialize difficulty values
             phrase_difficulty = ""
@@ -49,7 +49,7 @@ class CPU_Game:
                     phrase_difficulty = "easy"
 
                 elif difficulty_rating < medium_rating:
-                    phrase_difficulty = "meidum"
+                    phrase_difficulty = "medium"
 
                 else:
                     phrase_difficulty = "hard"
