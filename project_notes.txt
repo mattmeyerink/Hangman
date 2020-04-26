@@ -33,5 +33,10 @@ cpu_game.py
 test.py
     Defines a test suite.
 
-Automatic phrase difficulty rating based on frequeny of uncommon letters based
+Automatic phrase difficulty rating based on frequency of uncommon letters based
 length of phrase
+    difficulty level is parameter
+    randomly pick phrase from master phrase list
+    Give it a difficulty rating based on the percentage of difficult letters
+    if initially chosen word matches the input difficulty, set that as cpu
+        phrase

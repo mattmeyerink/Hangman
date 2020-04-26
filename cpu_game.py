@@ -3,11 +3,8 @@
 
 #File responsible for defining the CPU game class
 import random
-from cpu_phrases import easy_phrases
-from cpu_phrases import medium_phrases
-from cpu_phrases import hard_phrases
-from warning_color import Warning
-
+from cpu_phrases import *
+from warning_color import *
 class CPU_Game:
 
     def __init__(self):
@@ -17,31 +14,52 @@ class CPU_Game:
         self.current_guess = ""
         self.wrong_guesses = []
 
-    #Ramdomly selects a phrase from a list of phrases and assign to phrase
-    def generate_cpu_phrase(self, difficulty):
+    #Determine the difficulty of randomly selected phrase and assign the phrase
+    def phrase_rating(self, difficulty):
+        if difficulty == "easy" or difficulty == "meium" or difficulty == "hard":
 
-        #Generate random phrase from easy list
-        if difficulty == "easy":
-            random_number = random.randint(0, len(easy_phrases) - 1)
-            self.phrase = easy_phrases[random_number].upper()
+            #Initialize difficulty values
+            phrase_difficulty = ""
+            difficulty_rating = 0
+
+            while (not phrase_difficulty == difficulty):
+
+                #Reset difficulty variables
+                phrase_difficulty = ""
+                difficulty_rating = 0
+
+                #Randomly pick a new phrase from phrase list
+                random_number = random.randint(0, len(phrases) - 1)
+                self.phrase = phrases[random_number].upper()
+
+                #Calculate difficulty of generated phrase
+                for i in range(0, len(self.phrase)):
+                    if self.phrase[i] in rare_letters:
+                        difficulty_rating += 5
+                    elif self.phrase[i] in very_uncommon_letters:
+                        difficulty_rating += 2
+                    elif self.phrase[i] in uncommon_letters:
+                        difficulty_rating += 1
+
+                #Normalize to length of phrase
+                difficulty_rating = difficulty_rating / len(self.phrase)
+
+                #Assign difficulty to that phrase
+                if difficulty_rating < easy_rating:
+                    phrase_difficulty = "easy"
+
+                elif difficulty_rating < medium_rating:
+                    phrase_difficulty = "meidum"
+
+                else:
+                    phrase_difficulty = "hard"
+
+            #return true to indicate a valid difficulty was input
             return True
 
-        #Generate random phrase from medium list
-        elif difficulty == "medium":
-            random_number = random.randint(0, len(medium_phrases) - 1)
-            self.phrase = medium_phrases[random_number].upper()
-            return True
-
-        #Generate random phrase from hard list
-        elif difficulty == "hard":
-            random_number = random.randint(0, len(hard_phrases) - 1)
-            self.phrase = hard_phrases[random_number].upper()
-            return True
-
-        #Return false to signal invalid difficulty was input
         else:
+            #return false to indicate an invalid difficulty was input
             return False
-
 
     #Underscores for characters and spaces for spaces in the guessed word
     def init_guessed_word(self):
@@ -91,8 +109,9 @@ class CPU_Game:
         #Bool and branch to check if the player has already guessed this
         if (already_guessed):
             print("")
-            print(Warning.RED + "You already guessed that.",
-                            "Pay better attention dumbass\n" + Warning.END)
+            print(Warning.RED + "You already guessed that." +
+                            " Pay better attention dumbass!!\n" + Warning.END)
+
             self.num_wrong_guesses += 1
 
         #If there were no matches for the guess letter add to wrong bank and

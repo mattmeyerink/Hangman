@@ -28,7 +28,7 @@ def game(menu_choice):
             difficulty = difficulty.lower()
 
             #Generate CPU phrase and update correct_difficulty
-            correct_difficulty = game.generate_cpu_phrase(difficulty)
+            correct_difficulty = game.phrase_rating(difficulty)
 
             #Output if difficulty input invalid
             if (not correct_difficulty):
