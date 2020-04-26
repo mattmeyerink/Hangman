@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['start.py', 'game.py', 'cpu_game.py', 'user_game.py', 'cpu_phrases.py'],
+a = Analysis(['start.py', 'game.py', 'cpu_game.py', 'cpu_phrases.py', 'user_game.py', 'warning_color.py'],
              pathex=['/Users/matthewmeyerink/Documents/Projects/Hangman'],
              binaries=[],
              datas=[],
