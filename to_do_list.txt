@@ -1,7 +1,9 @@
 To-Do List
 1. Possibly add game mode where user enters a word to try to beat computer who
     guesses letters
+2. Add in function to determine difficulty from any 
 
 Current Bugs
 After a user enters an identical guess, the game will no longer add to the
-incorrect guess list. Weird though because it only happens sometimes
+incorrect guess list. Weird though because it only happens sometimes. Need to
+keep watch for this to determine when it happens

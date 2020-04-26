@@ -28,7 +28,10 @@ cpu_game.py
     Class that defines a game against a cpu. Implement first.
     Generate phrase.
     print out the gallows and the phrase
-    Ask the user for input. 
+    Ask the user for input.
 
 test.py
     Defines a test suite.
+
+Automatic phrase difficulty rating based on frequeny of uncommon letters based
+length of phrase
